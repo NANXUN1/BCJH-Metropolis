@@ -125,80 +125,8 @@ break;}
 }
 return 24;
 
-    // 第2轮
-    // 条件：酸：本道料理饱腹感-5
-    for (int i = 3; i < 6; i++) {
-        if (s.recipe[i]->flavor.sour == true) {
-            // 效果：酸：本道料理饱腹感-5
-            lenientRule[i]->addRule.full += -5;
-            break;
-        }
-    }
-    // 条件：甜：本道料理售价+100%
-    for (int i = 3; i < 6; i++) {
-        if (s.recipe[i]->flavor.sweet == true) {
-            // 效果：甜：本道料理售价+100%
-            lenientRule[i]->addRule.buff += 100;
-            break;
-        }
-    }
-    // 条件：辣：本道料理基础售价+500
-    for (int i = 3; i < 6; i++) {
-        if (s.recipe[i]->flavor.spicy == true) {
-            // 效果：辣：本道料理基础售价+500
-            lenientRule[i]->baseRule.directAdd += 500;
-            break;
-        }
-    }
-    // 条件：苦：下道料理为辣时售价+100%
-    for (int i = 3; i < 6; i++) {
-        if (s.recipe[i]->flavor.bitter == true) {
-            // 效果：苦：下道料理为辣时售价+100%
-            if (i + 1 < 6) {
-                // 效果：苦：本道料理为辣时售价+100%
-                if (s.recipe[i + 1]->flavor.spicy == true) {
-                    // 效果：苦：本道料理为辣时售价+100%
-                    strictRule[i + 1]->addRule.buff += 100;
-                    break;
-                }
-            }
-            break;
-        }
-    }
-    // 第3轮
-    // 条件：1火：本道料理基础售价+1000
-    for (int i = 6; i < 9; i++) {
-        if (s.recipe[i]->rarity == 1) {
-            // 效果：1火：本道料理基础售价+1000
-            lenientRule[i]->baseRule.directAdd += 1000;
-            break;
-        }
-    }
-    // 条件：2火：本道料理基础售价+50%
-    for (int i = 6; i < 9; i++) {
-        if (s.recipe[i]->rarity == 2) {
-            // 效果：2火：本道料理基础售价+50%
-            lenientRule[i]->baseRule.buff += 50;
-            break;
-        }
-    }
-    // 条件：3火：本道料理售价+100%
-    for (int i = 6; i < 9; i++) {
-        if (s.recipe[i]->rarity == 3) {
-            // 效果：3火：本道料理售价+100%
-            lenientRule[i]->addRule.buff += 100;
-            break;
-        }
-    }
-    // 条件：4火：本道料理饱腹感-4
-    for (int i = 6; i < 9; i++) {
-        if (s.recipe[i]->rarity == 4) {
-            // 效果：4火：本道料理饱腹感-4
-            lenientRule[i]->addRule.full += -4;
-            break;
-        }
-    }
-    return 24;
+    
 }
 
 #endif
+
